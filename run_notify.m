@@ -5,7 +5,9 @@ function [  ] = run_notify( script_name )
 % user token after completion, or upon an error.
 
 %% Parameters
-load pushover_parameters.mat
+if exist('pushover_parameters.mat', 'file')
+    load pushover_parameters.mat
+end
 
 %% Script
 
@@ -28,13 +30,14 @@ end
 
 cprintf('blue', '\n---\nExecution Complete: %s\nTime Elapsed: %.1fs\n---\n', script_name, tElapsed);
 
-post_params = {'token', API_TOKEN,...    % API token
-               'user', USER_TOKEN,...    % user's ID token
-               'message', message,...    % message to push
-               'title', title};          % message title in notification bar
-           
-urlread('https://api.pushover.net/1/messages.json', 'Post', post_params);
+if exist('API_TOKEN', 'var')
+    post_params = {'token', API_TOKEN,...    % API token
+                   'user', USER_TOKEN,...    % user's ID token
+                   'message', message,...    % message to push
+                   'title', title};          % message title in notification bar
 
+    urlread('https://api.pushover.net/1/messages.json', 'Post', post_params);
+end
 
 end
 

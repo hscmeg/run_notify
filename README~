@@ -4,6 +4,16 @@
   Simeon Wong
   2013 June 04
   
+*** IMPORTANT ***
+
+If you're using Sam or Margot's servers, you can use these functions by adding
+  /sdata3/simeon/prod/runnotify
+to your MATLAB path, and downloading 'pushover_parameters.mat' to your MATLAB
+directory.
+
+*****************
+
+
 This script is designed to work with the Pushover mobile application.
 If you don't have it, you can get it here: https://pushover.net/
 
