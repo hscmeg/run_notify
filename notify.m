@@ -18,7 +18,7 @@ if exist('pushover_parameters.mat', 'file')
 end
 
 % Display local message
-cprintf('blue', message);
+cprintf('blue', [message, '\n']);
 
 end
 
